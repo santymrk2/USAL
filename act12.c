@@ -19,7 +19,7 @@ int main() {
     if (gross_salary < 2500) {
         insurance = MIN_INSURANCE;
     } else {
-        insurance = insurance * POR_INSURANCE;
+        insurance = gross_salary * POR_INSURANCE;
     }
     salary = gross_salary - insurance;
     printf("Hi %s,\n Gross salary: %d \n Insurance: %d \n Salary to pay: %d", name, gross_salary, insurance, salary);
