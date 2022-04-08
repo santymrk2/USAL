@@ -1,13 +1,14 @@
+//actividad 15; Santiago Mercado;
 #include <stdio.h>
 
 int main(){
-    int num, final=1;
-    printf("Enter a number: ");
+    int num, i=0, final=0;
+    printf("Ingrese un numero: ");
     scanf("%d", &num);
     do {
-        printf("%d+", final);
-        final++;
-    } while (final<num);
-    printf("%d", num);
+        final=final+i;
+        i++;
+    } while (i<=num);
+    printf("La suma es: %d", final);
     return 0;
 }
