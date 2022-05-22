@@ -6,8 +6,6 @@ int main(){
     float array[Q];
     for(int i=0; i<Q; i++){
         array[i] = rand();
-    }
-    for(int i=0; i<Q; i++){
         printf("%.2f \n", array[i]);
     }
     return 0;
