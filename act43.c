@@ -14,10 +14,10 @@ int main() {
         do {
             fflush(stdin);
             scanf("%d", &kids[i]);
-            if(kids<0) {
+            if(kids[i]<0) {
                 puts("Enter a number major to 0 or 0");
             }
-        } while (kids<0);
+        } while (kids[i]<0);
     }
     puts("Sport    Kids     Teachers");
     for(int i=0; i<LN; i++) {
