@@ -22,7 +22,7 @@ int main() {
     puts("Sport    Kids     Teachers");
     for(int i=0; i<LN; i++) {
         if(kids[i]>=10) {
-            canTeach=kids[i]/10;
+            canTeach=kids[i]/10;//incorrecto
         } else if (kids[i]<10 && kids[i]>0) {
             canTeach=1;
         }
