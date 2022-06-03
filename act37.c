@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #define Q 20
 
 int main() {

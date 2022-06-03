@@ -21,12 +21,14 @@ int main() {
     }
     puts("Sport    Kids     Teachers");
     for(int i=0; i<LN; i++) {
+        canTeach=((kids[i]/2)/5)+1;
+        /*
         if(kids[i]>=10) {
             canTeach=kids[i]/10;//incorrecto
         } else if (kids[i]<10 && kids[i]>0) {
             canTeach=1;
         }
-        else canTeach=0;
+        else canTeach=0;*/
         printf("%c        %d         %d\n", sport[i], kids[i], canTeach);
     }
     return 0;

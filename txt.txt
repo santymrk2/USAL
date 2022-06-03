@@ -1,2 +1,25 @@
 Todavia no he trabajado para ninguna empresa como desarrollador de software, pero si tengo conocimientos de web como html, css y javascript, poseo conocimientos de C y varias de sus librerias gracias a la Universidad, en donde practico el uso de Git para gestionar mis tareas y poder realizarlas desde cualquier dispositivo. 
 Actualmente estoy estudiando el primer año de la carrera de Ingenieria en sistemas en la Universidad del Salvador. He concluido cursos de programacion basica y fundamentos en Platzi, donde tambien estoy estudiando Javascript y fundamentos de web como html y css. Tambien estoy realizando un curso de Git y Github en la misma plataforma y lo aplico en mi dia a dia para trabajos de la universidad.
+
+
+biblioteca: <stdbool.h>
+
+bool sigo = true;
+
+while (sigo) {....
+while (sigo == true) { ….
+
+
+biblioteca: <ctype.h>
+
+toupper(var_tipo_char): devuelve el caracter en mayúsculas
+tolower(var_tipo_char): devuelve el caracter en minúscula
+
+
+biblioteca: <string.h> 
+biblioteca con funciones de caracteres
+
+Strlen(cadena) //longitud de la cadena
+Strcmp(cadena1,cadena2) //compara alfabéticamente y devuelve 0 si son iguales, número negativo si es menor, número positivo si es mayor. Compara carácter a carácter según código ASCII
+Strcpy(nombre1,nombre2) //copia una cadena a otra, nombre2 a nombre1. Útil porque al ser las cadenas de caracteres arreglos no se puede asignar.
+
