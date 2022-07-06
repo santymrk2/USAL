@@ -3,6 +3,7 @@
 #include <string.h>
 #define TR 10
 
+//comment
 int main() {
     char type[TR];
     float pesos[TR];
