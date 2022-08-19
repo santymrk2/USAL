@@ -2,7 +2,7 @@
 #define C 10
 
 //int leerNum(int array[C])
-int contarNum(int array[c]){
+int contarNum(int array[]){
 	int cantidad=0;
 	for(int i=0; i<C; i++) {
 		if(array[i]%5 == 0) {

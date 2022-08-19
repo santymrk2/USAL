@@ -4,7 +4,7 @@ int readNum() {
 	int v;
 	do{
 		scanf("%d", &v);
-	} while (v)
+	} while (v);
 }
 
 int main() {
