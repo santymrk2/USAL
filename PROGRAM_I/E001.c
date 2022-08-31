@@ -1,19 +1,16 @@
 #include <stdio.h>
 
 void readNum(int v) {
+	puts("Ingrese un numero: ");
 	scanf("%d", &v);
 	fflush(stdin);
 }
 
-void printCubeNum(int v) {
-	printf("El cubo de %d es: %d", v, v*v*v);
-}
-
 int main() {
-	int Num;
+	int num;
 	//read num
-	readNum(Num);
+	readNum(num);
 	//print num
-	printCubeNum(Num);
+	printf("El cubo de %d es: %d", num, num*num*num);
 	return 0;
 }

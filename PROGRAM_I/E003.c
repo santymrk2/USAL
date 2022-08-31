@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 //ACTIVITY 3
-//Confeccionar un programa que lea N pares de datos. Cada par de datoscorresponde a la medida de la base y la altura de un triángulo.
+//Confeccionar un programa que lea N pares de datos. Cada par de datos corresponde a la medida de la base y la altura de un triángulo.
 //El programa deberá informar:
 //a) De cada triángulo la medida de su base, su altura y su superficie.
 //b) La cantidad de triángulos cuya superficie es mayor a 12.
