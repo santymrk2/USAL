@@ -74,3 +74,46 @@ muchas veces no es necesario recorrer o mostrar muchas pantallas sin que necesit
 Manejo de recursos
 
 
+#  Clase 31-08
+
+
+Vectores ≠ listas enlazadas simples
+vectores: mueble con muchos cajones, nodo por un lado y el dato con el puntero en el otro.
+listas enlazadas simples: gran mueble con varias cosas, cada bloque tiene el valor o dato y el puntero al siguiente.
+generar 
+[2..10]                    ==                    [2, 3, 4, 5, 6, 7, 8, 9, 10] 
+[1,5..10]                 ==                    [1, 5, 9]
+haskell lo ve como saltos
+
+tail [] no devuelve el primero
+head [] devuleve el primero
+last [] devuelve el ultimo
+length []
+concatenar listas (++)
+traer un indice (!!)
+reverse []
+
+tupla
+(almacenar con distintos tipos de datos)
+syntaxis:      (VALOR, VALOR)
+trabajar con hasta dos elementos, sino es recomendable usar POO
+
+Funciones para tuplas:
+fst (primer elemento de la tupla)
+snd (segundo elemento de la tupla)
+
+
+tipos propios
+data Persona = Persona String Int deriving(Show)
+
+"el tipo de dato Persona utiliza un constructor de nombre persona, que recibe un string y un int"
+
+record syntax
+definir la syntaxis de una manera muchos mas expresiva y declarativa
+
+data Persona = Persona {
+	nombre :: String, 
+	edad :: Int,
+	domicilio:: String, 
+	telefono :: String,
+	plata:: Float }
