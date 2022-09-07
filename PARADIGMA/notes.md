@@ -117,3 +117,16 @@ data Persona = Persona {
 	domicilio:: String, 
 	telefono :: String,
 	plata:: Float }
+
+
+
+
+paradigma estructurado 
+-> secuencia
+-> condicion 
+-> bucle
+
+funcional
+-> incognitas
+
+POO
