@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #define C 100
 
 /*
@@ -32,10 +33,10 @@ void mayus(char str[], int e){
 
 void inData(empleado b[], int e){
     for(int i=0; i < e; i++){
-        //leo nombre 
+        //leo nombre
         puts("Ingrese nombre completo: ");
-        gets(b[i].nombreC);
         fflush(stdin);
+        gets(b[i].nombreC);
         mayus(b[i].nombreC, e);
         // leo pago por hora
         do{
@@ -56,7 +57,8 @@ void inData(empleado b[], int e){
 
 void printData(empleado b[], int e){
     for(int i=0; i<e; i++){
-        printf("Empleado n%i:\nNombre: %-10s \nSueldo: %8.2f\n", e, b[i].nombreC, b[i].horas*b[i].pago);
+        puts("--\n");
+        printf("Empleado n%i:\nNombre: %-10s \nSueldo: %8.2f\n", i+1, b[i].nombreC, b[i].horas*b[i].pago);
     }
 }
 
