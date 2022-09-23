@@ -63,20 +63,19 @@ int cargar(tipoJUG l[]) {
 void mostrar(tipoJUG j[], int jug) {
 	int prom = 0;
 	for(int i=0;i<jug; i++){
-		
 		printf("Nombre: %s,\nEquipo: %s,\nPromedio de goles por partido: %f", j[i].nom, j[i].eq );
 	}
     return;
 }
 
 int main(){
-	//declarar variables 
+	//declarar variables
 	tipoJUG fifa[T];
 	int jug;
-	
+
 	//cargar los datos
 	jug = cargar(fifa);
-	
+
 	//mostrar
 	mostrar(fifa, jug);
 	return 0;

@@ -13,6 +13,7 @@ y preguntar al usuario si quiere continuar cargando después decada tipo cargado
 #include <stdbool.h>
 #define SQ 100
 #define MQ 7
+#define IF 2
 
 
 typedef struct {
@@ -23,15 +24,13 @@ typedef struct {
 
 bool continua(){
     bool n;
-    char l[2];
+    char l[IF];
     do{
         puts("Si desea continuar elija 'si', sino escriba 'no': ");
         fflush(stdin);
         gets(l);
-        for(int i=0; i<(strlen(l)); i++) {
-            l[i] = toupper(l[i]);
-        }
-        if ((strcmp(l, "SI") != 0) && (strcmp(l, "NO") != 0)) puts("dato invalido");
+        for(int i=0; i<(IF); i++) l[i] = toupper(l[i]);
+        if ((strcmp(l, "SI") != 0) && (strcmp(l, "NO") != 0)) puts("Dato invalido");
     }while((strcmp(l, "SI") != 0) && (strcmp(l, "NO") != 0));
     if((strcmp(l, "SI") == 0)) n = true;
     else n = false;
@@ -49,8 +48,11 @@ void readFee(memberT m){
 memberT devolverUno(){
     memberT temp;
     puts("Ingrese nombre del tipo de miembro: ");
+    fflush(stdin);
     gets(temp.name);
+    for(int i=0; i<strlen(temp.name); i++) temp.name[i] = toupper(temp.name[i]);
     puts("Ingrese descripcion del tipo de miembro: ");
+    fflush(stdin);
     gets(temp.desc);
     readFee(temp);
     return temp;
@@ -66,15 +68,30 @@ int dataIn(memberT m[]) {
     return i;
 }
 
-void dataOut(memberT m[]){
+void dataOut(memberT m[], int c){
+    for(int i=0; i<c; i++){
+        printf("%10s      %25s      %10lf\n",  m[i].name, m[i].desc, m[i].anualFee);
+    }
     return;
+}
+
+void dataByType(memberT m[], char l[]){\
+    puts("impresion por categoria");
+    for(int i=0; i<MQ; i++){
+        if(strcmp(m[i].name, l)==0){
+            printf("%s -- %s -- %.2lf", m[i].name, m[i].desc, m[i].anualFee);
+            return;
+        }
+    }
 }
 
 //---------------- MAIN --------------------//
 
 int main() {
     memberT member[MQ];
+    char find[10] = "ADULT";
     int cant = dataIn(member);
-    dataOut(member);
+    dataOut(member, cant);
+    dataByType(member, find);
     return 0;
 }

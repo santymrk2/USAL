@@ -20,7 +20,7 @@ void fillData(char a[], double s[], int dim) {
 void order(char arr[], double car[], int dim) {
     for (int i=0; i<dim; i++) {
         for (int j=i+1; j<dim; j++){
-            if (arr[j] < arr[i]) { 
+            if (arr[j] < arr[i]) {
                 char aux = arr[i];
                 arr[i] = arr[j];
                 arr[j] = aux;
@@ -51,6 +51,6 @@ int main(){
 
     //mostrar datos
     show(sur, sal, E);
-    
+
     return 0;
 }

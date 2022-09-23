@@ -16,7 +16,7 @@ void cargarVec(int dni[], int age[], bool pami[]) {
         scanf("%d", &age[i]);
         fflush(stdin);
         if (age[i]<0) puts("Error, dato de edad incorrecto");
-        } while(age[i]<0); 
+        } while(age[i]<0);
 
         //leer si es pami
         int p;

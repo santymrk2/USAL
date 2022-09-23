@@ -8,7 +8,7 @@ int leerSupCond(int o) {
 		scanf("%d", &sup);
 		if(sup<o) puts("Ingrese un numero mayor a al inferior");
 	} while(sup<o);
-	
+
 	return sup;
 }
 
@@ -31,7 +31,7 @@ int valorEntre(int inf, int sup) {
 
 int nroEntreLimit() {
 	int inf, sup, v;
-	//leer los limites	
+	//leer los limites
 	inf = leerInf();
 	sup = leerSupCond(inf);
 	//ingrese un valor entre los limites
