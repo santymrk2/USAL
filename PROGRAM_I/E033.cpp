@@ -22,4 +22,10 @@ void dataByType(memberT m[], char l[]){
             return;
         }
     }
-}
+
+
+/*
+Para la misma entidad deportiva y utilizando la misma tabla de costos anuales de membresía, desarrollar una función que:
+● reciba la tabla CARGADA en forma desordenada y una categoría de socio (member type)
+● devuelva los datos asociados a esa categoría
+*/
