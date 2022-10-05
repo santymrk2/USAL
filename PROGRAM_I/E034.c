@@ -26,23 +26,26 @@ typeAct returnOne(){
     fflush(stdin);
     gets(temp.name);
     for(int i=0; i < strlen(temp.name); i++) temp.name[i] = tolower(temp.name[i]);
-    puts(temp.name);
+
     //rate
     do{
         puts("Enter the rating (1-5): ");
+        fflush(stdin);
         scanf("%d", &temp.rate);
         if(temp.rate<1 || temp.rate>5) puts("Data Error");
     } while(temp.rate<1 || temp.rate>5);
+
     //place
     puts("Enter the place: ");
     fflush(stdin);
     gets(temp.place);
     for(int i=0; i < strlen(temp.place); i++) temp.place[i] = tolower(temp.place[i]);
-    puts(temp.place);
+
     return temp;
 }
 
-void goOn(bool c, int l){
+bool goOn(){
+    bool c;
     char f[4];
     do{
         puts("Would you like to continue? (yes or no)");
@@ -53,28 +56,23 @@ void goOn(bool c, int l){
         if((strcmp(f, "yes") != 0) && (strcmp(f, "no") != 0)) puts("Data error");
     } while((strcmp(f, "yes") != 0) && (strcmp(f, "no") != 0));
 
-    /*
     if(strcmp(f, "yes") == 0) {
         c=true;
-        l++;
     } else if (strcmp(f, "no") == 0){
         c=false;
-        */
-
-    c=false;
-
-    return;
+    }
+    return c;
 }
 
-void dataIn(typeAct m[], int l) {
+int dataIn(typeAct m[], int l) {
     bool c=true;
     int i=0;
     while(c==true){
         m[i] = returnOne();
         i++;
-        goOn(c, l);
+        c = goOn();
     }
-    return;
+    return i;
 }
 void dataOut(typeAct m[], int l) {
     printf("%d", l);
@@ -84,7 +82,7 @@ void dataOut(typeAct m[], int l) {
 int main() {
     int cant=1;
     typeAct sports[cant];
-    dataIn(sports, cant);
+    cant = dataIn(sports, cant);
     dataOut(sports, cant);
     return 0;
 }
