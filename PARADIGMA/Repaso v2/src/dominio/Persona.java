@@ -63,9 +63,9 @@ public class Persona {
 
 
     //Se recomiendo sobreescribir el método toString()
-    
+
     @Override
-    public String toString() {   
+    public String toString() {
         //super hace referencia a mi clase base/padre (Object)
         return "Soy una persona con nombre: " + this.nombre + ", apellido: " + this.apellido;
     }
