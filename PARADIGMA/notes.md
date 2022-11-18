@@ -5,7 +5,7 @@ Paradigma: marco de referencia sobre el cual vamos a construir software
 Dato: cualquier cosa de la naturaleza que se puede medir
 Informacion: se procesan los datos para hacerlos aplicables
 Cuando a una empresa u organizacion tiene problemas con la informacion es cuando entramos nosotros
- 
+
 Paradigmas:
 Estructurado: estructura de datos (), sentencias (imperativo, una receta de cocina se hace la mezcla y despues se mete en el horno), control (condicionales: if/switch, bucles:for/while/dowhile), operaciones (acciones que podemos realizar sobre los datos, Funciones: agrupar funcionalidades en comun)
 
@@ -21,7 +21,7 @@ void sumar(int a, int b, int*t); >>> esto cambia una varaible del main
 
 ### Estructura:
 struct es un tipo de dato nuevo (en este caso es Persona)
-struct PERSONA{ 
+struct PERSONA{
 	char[100] nombre;
 	int edad;
 	int dni;

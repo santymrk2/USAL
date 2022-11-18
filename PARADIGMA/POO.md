@@ -34,7 +34,7 @@ es un agrupamiento de obbjetos que comparten una estructura en comun
 atributos y metodos
 todo objeto tiene una clase
 
-la herencia 
+la herencia
 
 clase <nombre>
 siempre singular
@@ -53,10 +53,10 @@ public
 
 estado: de un objeto esta determinado por los valores que poseen sus atributos en un momento dados. 
 
-mensajes = cosas que puedo pedir q haga, no me interesa el como 
+mensajes = cosas que puedo pedir q haga, no me interesa el como
 
 abstraccion
-encapsulamiento: ocultar lo q soy, el pajaro sabe como volar 
+encapsulamiento: ocultar lo q soy, el pajaro sabe como volar
 
 metodo (en c++ cambia  el nombre)
 porcion de codigo que va a dar un comportamiento
