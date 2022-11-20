@@ -33,23 +33,23 @@ p.edad : 37;
 
 #  Clase 24-08
 
-Puedo programar muy bien, pero sino entiendo las necesidades del cliente no me sirve de nada. 
-En la ingenieria lo importante es el diseño y la arquitectura, no lo que hace el plomero o el albanil. 
+Puedo programar muy bien, pero sino entiendo las necesidades del cliente no me sirve de nada.
+En la ingenieria lo importante es el diseño y la arquitectura, no lo que hace el plomero o el albanil.
 No es tan tecnico es mas resolver lo q quiere el negocio
 
 Haskell
 
 functions
 
-puedoAvanzar :: String -> String -> Bool 
-// el ultimo dato es la salida y los que se encuentran antes 
+puedoAvanzar :: String -> String -> Bool
+// el ultimo dato es la salida y los que se encuentran antes
 puedoAvanzar color | color == "verde" = True
 				   | otherwise = False
 // la parte de las barras verticales se llama guardas
-puedoAvanzar2 
+puedoAvanzar2
 
 
-aprobo :: (Integral a) => a -> >String
+aprobo :: (Integral a) => a -> String
 aprobo 7 = "Aprobo"
 aprobo 8 = "Aprobo"
 aprobo 9 = "Aprobo"
@@ -69,8 +69,8 @@ Compound functions
 para sacar el resto de una division
 
 aplicacion parcial
-obtener otra funcion que necesita menos parametros que la original 
-muchas veces no es necesario recorrer o mostrar muchas pantallas sin que necesito recorrer algun dato o ve una sola pantalla. 
+obtener otra funcion que necesita menos parametros que la original
+muchas veces no es necesario recorrer o mostrar muchas pantallas sin que necesito recorrer algun dato o ve una sola pantalla.
 Manejo de recursos
 
 
@@ -80,8 +80,8 @@ Manejo de recursos
 Vectores ≠ listas enlazadas simples
 vectores: mueble con muchos cajones, nodo por un lado y el dato con el puntero en el otro.
 listas enlazadas simples: gran mueble con varias cosas, cada bloque tiene el valor o dato y el puntero al siguiente.
-generar 
-[2..10]                    ==                    [2, 3, 4, 5, 6, 7, 8, 9, 10] 
+generar
+[2..10]                    ==                    [2, 3, 4, 5, 6, 7, 8, 9, 10]
 [1,5..10]                 ==                    [1, 5, 9]
 haskell lo ve como saltos
 
@@ -112,18 +112,18 @@ record syntax
 definir la syntaxis de una manera muchos mas expresiva y declarativa
 
 data Persona = Persona {
-	nombre :: String, 
+	nombre :: String,
 	edad :: Int,
-	domicilio:: String, 
+	domicilio:: String,
 	telefono :: String,
 	plata:: Float }
 
 
 
 
-paradigma estructurado 
+paradigma estructurado
 -> secuencia
--> condicion 
+-> condicion
 -> bucle
 
 funcional

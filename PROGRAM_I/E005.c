@@ -17,7 +17,7 @@ void datosRealizar(int a[]) {
 	for(int i=0; i<T; i++) {
 		do{
 			a[i] = saveElement();
-			if(a[i]%3!=0) puts("Error, enter a multiply of 3"); 
+			if(a[i]%3!=0) puts("Error, enter a multiply of 3");
 		} while(a[i]%3!=0);
 	}
 }

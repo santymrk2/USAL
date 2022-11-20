@@ -10,7 +10,7 @@ No hago software para hy, sino para que siga cambiando y mejorando.
 
 Esta mucho mas familiarizado con el cambio.
 
-Caracteristicas: 
+Caracteristicas:
 - Flexibilidad: Pensar en bloques con los cuales se pueden crear diferentes programas
 - Reusabilidad: Una vez definida una entidad, se puede utilizar donde sea conveniente
 - Mantenibilidad: Es mas facil mantener las clases que conforman una aplicacion sin afectar otros componentes
@@ -18,12 +18,12 @@ Caracteristicas:
 
 Desventaja:
 Para hacer lo mimsmo se necesitan mas requerimientos de memoria y de procesos en general.
-()Antes era muy caro el acceso a hardware. 
-El costo actual ya no es el hardware sino el software. 
+()Antes era muy caro el acceso a hardware.
+El costo actual ya no es el hardware sino el software.
 
-La principal abstraccion en este paradigma son los objetos, que representan distintos tipos de entidades. 
+La principal abstraccion en este paradigma son los objetos, que representan distintos tipos de entidades.
 
-Encontrar el punto de quiebre de los programas para saber hasta donde llega y donde se tiene que crear uno nuevo. Por ejemplo creas un programa pensado para una empresa nacional y en unos años quieren ser internacionales. 
+Encontrar el punto de quiebre de los programas para saber hasta donde llega y donde se tiene que crear uno nuevo. Por ejemplo creas un programa pensado para una empresa nacional y en unos años quieren ser internacionales.
 
 para el paradigma no importa el ibjeto real, sino que importa el modelo mental
 
@@ -51,7 +51,7 @@ los atributos
 private
 public
 
-estado: de un objeto esta determinado por los valores que poseen sus atributos en un momento dados. 
+estado: de un objeto esta determinado por los valores que poseen sus atributos en un momento dados.
 
 mensajes = cosas que puedo pedir q haga, no me interesa el como
 
@@ -63,7 +63,7 @@ porcion de codigo que va a dar un comportamiento
 
 method lookup
 
-metodo son las operaciones acciones o funciones, que se aplican sobre los objetos que permiten crearlos, cambair su estado o consultar el valor de sus atributos. 
+metodo son las operaciones acciones o funciones, que se aplican sobre los objetos que permiten crearlos, cambair su estado o consultar el valor de sus atributos.
 un metodo puede modificar el propio estado.
 
 nombre,
