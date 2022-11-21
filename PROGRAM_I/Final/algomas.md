@@ -7,7 +7,7 @@ En el archivo "data.txt", los datos se encuentran organizados de la siguiente ma
 **Hora** (Integer),
 **Uso de estacionamiento** (Boolean)
 
-La tercer variable del menu nos dice cuantas personas hay en el primer piso, en la hora de la cena (19:30 y 23:59)
+La tercer opcion dentro del menu llamada "peopleFirstFloor" busca aquellas reservas hechas para el primer piso en el horario de la cena (entre 19:30 y 23:59) y suma la cantidad de personas. Luego de acuerdo a la capacidad de este piso (CAN = 80), devolvera por cuantos lugares se excede a este piso o  cuantos son los disponibles en caso de haberlos.
 
 
 # Algunos detalles de la empresa (opcionales)

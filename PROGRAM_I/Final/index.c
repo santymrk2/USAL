@@ -5,6 +5,7 @@ Santiago Mercado Carbone - 2022 */
 #include <ctype.h>
 #include <string.h>
 #define STRLEN 100
+#define CAP 80
 
 typedef struct {
     char name[STRLEN];
@@ -19,7 +20,9 @@ void nameRead(char a[]){
     puts("Enter the booking name: ");
     gets(a);
     fflush(stdin);
-    for(int i=0; i < strlen(a); i++) toupper(a[i]);
+    for(int i=0; i < strlen(a); i++) {
+        a[i] = toupper(a[i]);
+    }
     return;
 }
 char floorRead(){
@@ -46,11 +49,19 @@ int personsRead(){
 int hourRead(){
     int hour;
     do{
-        puts("Enter the hour whithout ':' (example: 17:30 = 1730):");
+        puts("Enter the arrival time (chose an option):\n>> 1. 12:00\n>> 2. 13:30\n>> 3. 15:00\n>> 4. 19:00\n>> 5. 20:30\n>> 6. 22:00");
         scanf("%d", &hour);
         fflush(stdin);
-        if(hour < 0 || hour > 2359) puts("Error, data incorrect\n");
-    }while(hour < 0 || hour > 2359);
+        if(hour < 1 || hour > 6) puts("Error, data incorrect\n");
+    }while(hour < 1 || hour > 6);
+    switch(hour){
+        case 1: hour = 1200; break;
+        case 2: hour = 1330; break;
+        case 3: hour = 1500; break;
+        case 4: hour = 1900; break;
+        case 5: hour = 2030; break;
+        case 6: hour = 2200; break;
+    }
     return hour;
 }
 bool parkingRead(){
@@ -90,7 +101,7 @@ void addRegister() {
         printf("Error reading the file");
     } else {
         // Aca agrego una nueva reserva con todas sus variables
-        fprintf(add, "%s %c %d %d %d", book.name, book.floor, book.persons, book.hour, book.parking);
+        fprintf(add, "%s %c %d %d %d\n", book.name, book.floor, book.persons, book.hour, book.parking);
     }
     fclose(add);
     return;
@@ -102,17 +113,58 @@ void viewData() {
         printf("Error reading the file");
     } else {
         // Aca veo todas la reservas hechas con sus datos encolumnados
-        puts("Name     Floor    Persons  Hour    Parking");
-        for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, book.floor, book.persons, book.hour, book.parking) == 5; i++){
-            printf("%s       %c       %d       %d      %d", book.name, book.floor, book.persons, book.hour, book.parking);
+        puts("Name           Floor      Persons        Hour        Parking");
+        for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++){
+            printf("%-15s  %-10c  %-10d  %-10d  %-10d\n", book.name, book.floor, book.persons, book.hour, book.parking);
         }
-        printf("%s", book.name);
     }
     fclose(view);
     return;
 }
-void peopleSecondFloor() {
+void peopleFirstFloor() {
     // Aca sumo la cantidad de personas que iran al SecondFloor
+    BOOKING book;
+    int q = 0;
+    FILE *view = fopen("data.txt", "r");
+    if(view == NULL) {
+        printf("Error reading the file");
+    } else {
+        // Aca veo todas la reservas hechas con sus datos encolumnados
+        for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++) {
+            if(book.floor == 'F'){
+                if(book.hour >= 1900) {
+                    q = q + book.persons;
+                }
+            }
+        }
+        if(q >= CAP) {
+            printf("Sorry, we have no room in the first level for dinner (excess = %d)\n", q-CAP);
+        } else {
+            printf("Yes, we have %d rooms left\n", CAP-q);
+        }
+    }
+    fclose(view);
+    return;
+}
+void splitTxt() {
+    BOOKING book;
+    FILE *view = fopen("data.txt", "r");
+    FILE *truePark = fopen("truePark.txt", "w");
+    FILE *falsePark = fopen("falsePark.txt", "w");
+    if(view == NULL) {
+        printf("Error reading the file");
+    } else {
+        for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++){
+            if(book.parking == true) {
+                fprintf(truePark, "\n%s %c %d %d %d", book.name, book.floor, book.persons, book.hour, book.parking);
+            } else {
+                fprintf(falsePark, "\n%s %c %d %d %d", book.name, book.floor, book.persons, book.hour, book.parking);
+            }
+        }
+    }
+    fclose(truePark);
+    fclose(falsePark);
+    fclose(view);
     return;
 }
 void closeMenu(bool* n) {
@@ -122,12 +174,12 @@ void closeMenu(bool* n) {
 
 int askOptions() {
     int a;
-    puts("Chose an option with the number:\n>>> 1: Make a reservation;\n>>> 2: View of all reservations\n>>> 3: Person Quantity in second floor \n>>> 4: Exit\n");
+    puts("\nChose an option with the number:\n>>> 1: Make a reservation;\n>>> 2: View of all reservations\n>>> 3: Person Quantity on first floor \n>>> 4: Split file by parking\n>>> 5: Exit\n");
 	do{
 		scanf("%d", &a);
         fflush(stdin);
-		if(a < 1 || a > 4) puts("Error, enter a number between 1 and 4\n");
-	} while (a < 1 || a > 4);
+		if(a < 1 || a > 5) puts("Error, enter a number between 1 and 5\n");
+	} while (a < 1 || a > 5);
     return a;
 }
 
@@ -138,8 +190,9 @@ void menu() {
         switch (options){
             case 1: addRegister(); break;
             case 2: viewData(); break;
-            case 3: peopleSecondFloor(); break;
-            case 4: closeMenu(&persist); break; // Creo que no es necesario el ampersand, pensar porque ...
+            case 3: peopleFirstFloor(); break;
+            case 4: splitTxt(); break;
+            case 5: closeMenu(&persist); break;
         }
     }
     return;
