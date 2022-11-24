@@ -17,6 +17,7 @@ typedef struct {
 
 
 void nameRead(char a[]){
+    // En esta funcion se ingresa el nombre de la reserva
     puts("Enter the booking name: ");
     gets(a);
     fflush(stdin);
@@ -26,6 +27,7 @@ void nameRead(char a[]){
     return;
 }
 char floorRead(){
+    // En esta funcion se ingresa el piso deseado
     char floor;
     do{
         puts("Enter the desired floor (B='Basement level' G='Ground level' F='First level'):");
@@ -37,6 +39,7 @@ char floorRead(){
     return floor;
 }
 int personsRead(){
+    // En esta funcion se ingresa la cantidad de personas para esa reserva
     int persons;
     do{
         puts("Enter the number of diners: ");
@@ -47,6 +50,7 @@ int personsRead(){
     return persons;
 }
 int hourRead(){
+    // En esta funcion se ingresa el horario deseado eligiendo una de las opciones
     int hour;
     do{
         puts("Enter the arrival time (chose an option):\n>> 1. 12:00\n>> 2. 13:30\n>> 3. 15:00\n>> 4. 19:00\n>> 5. 20:30\n>> 6. 22:00");
@@ -65,6 +69,7 @@ int hourRead(){
     return hour;
 }
 bool parkingRead(){
+    // En esta fucnion se pregunta si se desea utilizar el estacionamiento
     char parking;
     bool n;
     do{
@@ -82,6 +87,7 @@ bool parkingRead(){
     return n;
 }
 void fillData(BOOKING* reserva) {
+    // Esta funcion esta encargada de llenar llenar todos los datos de una reserva llamando a las fucniones especificas
     nameRead(reserva -> name);
     reserva -> floor = floorRead();
     reserva -> persons = personsRead();
@@ -90,17 +96,14 @@ void fillData(BOOKING* reserva) {
     return;
 }
 
-
 void addRegister() {
-    // Carga de datos en memoria
     BOOKING book;
     fillData(&book);
-    // Carga de datos en el archivo .txt
     FILE *add = fopen("data.txt", "a");
     if(add == NULL) {
         printf("Error reading the file");
     } else {
-        // Aca agrego una nueva reserva con todas sus variables
+        // Agrego una nueva reserva con todas sus variables
         fprintf(add, "%s %c %d %d %d\n", book.name, book.floor, book.persons, book.hour, book.parking);
     }
     fclose(add);
@@ -112,24 +115,40 @@ void viewData() {
     if(view == NULL) {
         printf("Error reading the file");
     } else {
-        // Aca veo todas la reservas hechas con sus datos encolumnados
+        // Aca veo todas la reservas hechas con sus datos encolumnados, primero se  imprimen los del primer piso, luego los de planta baja y por ultimo el subsuelo.
         puts("Name           Floor      Persons        Hour        Parking");
         for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++){
-            printf("%-15s  %-10c  %-10d  %-10d  %-10d\n", book.name, book.floor, book.persons, book.hour, book.parking);
+            if(book.floor == 'F') {
+                printf("%-15s  %-10c  %-10d  %-10d  %-10d\n", book.name, book.floor, book.persons, book.hour, book.parking);
+            }
         }
+        fclose(view);
+        view = fopen("data.txt", "r");
+        for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++){
+            if(book.floor == 'G') {
+                printf("%-15s  %-10c  %-10d  %-10d  %-10d\n", book.name, book.floor, book.persons, book.hour, book.parking);
+            }
+        }
+        fclose(view);
+        view = fopen("data.txt", "r");
+        for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++){
+            if(book.floor == 'B') {
+                printf("%-15s  %-10c  %-10d  %-10d  %-10d\n", book.name, book.floor, book.persons, book.hour, book.parking);
+            }
+        }
+        fclose(view);
     }
-    fclose(view);
     return;
 }
 void peopleFirstFloor() {
-    // Aca sumo la cantidad de personas que iran al SecondFloor
+    // Esta funcion se encarga de contar la cantidad de personas que iran al FirstFloor
     BOOKING book;
     int q = 0;
     FILE *view = fopen("data.txt", "r");
     if(view == NULL) {
         printf("Error reading the file");
     } else {
-        // Aca veo todas la reservas hechas con sus datos encolumnados
+        // Por cada registro se verifica que sea del primer piso y luego que sea en la cena (19:00 hs o mas )
         for (int i=0; fscanf(view, "%s %c %d %d %d", book.name, &book.floor, &book.persons, &book.hour, &book.parking) == 5; i++) {
             if(book.floor == 'F'){
                 if(book.hour >= 1900) {
@@ -138,6 +157,7 @@ void peopleFirstFloor() {
             }
         }
         if(q >= CAP) {
+            // ya que al ingresar los datos no se advierte que no hay mas lugar en el primer piso, esta funcion se encarga de decir cual es el exceso o cual es la disponibilidad.
             printf("Sorry, we have no room in the first level for dinner (excess = %d)\n", q-CAP);
         } else {
             printf("Yes, we have %d rooms left\n", CAP-q);
@@ -147,6 +167,7 @@ void peopleFirstFloor() {
     return;
 }
 void splitTxt() {
+    // Esta funcion se encarga de dividir el archivo de texto en dos nuevos donde uno posee las reservas que utilizan parking y otro los que no.
     BOOKING book;
     FILE *view = fopen("data.txt", "r");
     FILE *truePark = fopen("truePark.txt", "w");

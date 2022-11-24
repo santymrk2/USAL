@@ -74,7 +74,52 @@ Para ejecutar:
     Aplicacion: ```:l nombreAplicacion.hs```
     Funcion: ```:t nombreFuncion```
 
+lenguaje con chequeo estático de tipos
 
+max x y | x > y     = x
+        | otherwise = y
+
+Sigue la logica matematica:
+    un hecho que depende de otro
+    variable como incognita, valor sin resolver, en lugar de posicion en memoria que puede sobre escribirse
+
+**Composicion de funciones**:
+lo que devuelve g hay que aplicarselo a f (ambas deben ser funciones)
+genereando una nueva funcion
+
+se aplica una nueva funcion que resulta de aplicar f primero y luego g (en haskell se escibe al reves g.f) y es muy importante el punto
+Ejemplo:
+cuadruple numero = (doble.doble) numero
+doble :: Int -> Int
+
+Listas
+[]
+Elementos tienen que ser del mismo tipo de dato y la cantidad varia
+head (cabeza); tail (cola); length (longitud); sum (suma los elmentos); ++ (concatena); take (los primeros n elementos); drop (lista sin los primeros n elementos); !! (elemento en cierta posicion); reverse;
+
+Tuplas
+complejo(real, img)
+Elementos de diferentes tipos de datso y la cantidad es fija
+fst; snd;
+
+tipos propios
+```
+dataPersona=PersonaStringInt deriving(Show)
+Persona "Santiago" 32
+nombre(Personan e) =n
+edad(Personan e) =e
+```
+Otra manera
+```
+dataPersona=Persona{
+nombre ::String,
+edad ::Int,
+domicilio ::String,
+telefono::String,
+fechaNacimiento::(Int, Int, Int),
+buenaPersona::Bool,
+plata ::Float}
+```
 
 
 ### Logico
@@ -82,6 +127,10 @@ Conjunto de predicados definidos a traves de clausulas (hechos y reglas) que des
 
 ## POO
 Conjunto de objetos que se relacionan entre si con referencias y mensajes en un ambiente.
+Tecnica de programacion que usa objetos y sus interacciones para disennar apps. Se acerca mas a la manera de expresarnos en la vida real.
+Comvina datos y procedimientos en una entidad unica.
+
+Ilusion de simplicidad
 
 **Ventajas**:
 - Flexibilidad: Se utilizan modulos independientes que son bloques con los cuales se pueden crear diferentes programas
@@ -91,9 +140,70 @@ Conjunto de objetos que se relacionan entre si con referencias y mensajes en un 
 
 **Desventaja**:
 -  En programas simples, se requieren pasos extra.
-- Se requieren mas recuros de memori y procesos en general.
+- Se requieren mas recuros de memoria y procesos en general. <= <= <=
 { antes el HW era caro, pero hoy ya no es una limitacion }
 - Necesidad de documentacion para entender la abstracion
+
+### Objeto
+Algo que puedo representar a traves de una idea o concepto. Tiene entidad
+Importa el modelo mental y no el real
+
+### Clase
+Es una agrupacion o coleccion de objetos que comparten una estructura comun y comportamiento.
+Consta de atributos y metodos.
+Todo objeto pertenece a una clase y el objeto es una instancia del mismo.
+Son estaticas, durante la ejecucion no existen
+- Atributos: datos contenidos dentro de un objeto (caracteristica o propiedades) y pueden ser variables, constantes o estructuras de datos.
+```<Modo de Acceso> <Tipo de Dato> <Nombre del atributo>```
+
+Modos:
+    + Publico: accesibles fuera de la clase = +
+    + Privado: solo accesibles dentro de la implementacion de clase = -
+    + Protegido: son accesibles para la propia clase e hijas = #
+
+- Estado: esta determinado por los valores que poseen los atributos en un momento.
+
+- Mensajes: mode de interactuar de los objetos. cosas que le puedo pedir a un objeto que haga. Se utiliza la abstraccion ya que no se sabe como funciona sino que solo se lo invoca
+Partes: Identidad del receptor; nombre del metodo a ejecutar; lista de parametro para el metodo.
+
+- Metodo: operaciones que se aplicacan sobre los objetos y permiten crearlos, cambiar su estado o consultar variables. secuencia de lineas de codigo con un nombre. Cuando se manda un mensaje se activa el metodo cuyo nombre coincide con el del mensaje.
+methodlookup
+
+Constructor:
+inicializar objeto cuando es creado
+los valores inciales son tomados del constructor.
+
+Destructor: se eliminan los objetos que ya no se utilizan.
+<variable_objeto>.<nombre_método>([<Lista de parámetros]);
+
+- Ambiente: donde viven los objetos. imagen para smalltalk o virtual machine para java
+
+Conceptos:
+- Comportamiento: los procedimientos o metodos utilizaods por un objeto.
+- Identidad: cada objeto tiene una identidad unica.
+- Encapsulamiento: ocultamiento del estado de los datos miembro de un objeto y solo cambia mediante lo que este definido para ese objeto.
+- Interfaz: lo publica el objeto para que otro objeto lo use.
+- Implementacion: lo que el objeto encapsula para definir como se termina resolviendo el mensaje
+
+- Cardinalidad o multiplicidad: numero de ocurrencias que se pueden dar en una relacion. Ej: una persona compra muchos autos y un auto es comprado por una sola persona.
+maxima y minima
+
+1 : uno y solo uno
+0..1 : cero y uno
+N..M : desde n hasta m
+* : cero o varios
+0..* : cero o varios
+1..* : uno o varios
+
+- Herencia: una clase se crea a partir de una existente
+Herencia simple (la clase puede herdar de otra clase)
+Herencia multiple (la clas ehija puede heredar de otras clases padre)
+
+*Asociacion*: dos clases tienen dependencia de utilizacion (utilizan atributos y/o metodos) no necesariamente una es padre de la otra.
+*Agregacion*: objeto como composicion de otros objetos
+*Composicion*: componente es parte esencial de un elemento. si el componente se elimina desaparece la mayor
+
+
 
 # Conceptos transversales
 + **Abstraccion**:
