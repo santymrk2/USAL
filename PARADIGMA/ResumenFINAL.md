@@ -27,7 +27,7 @@ Base: Como se hace algo
 - Menos esfuerzo en el testing
 - La lectura de un programa suele ser mas sencilla al ser del tipo secuencial
 - Se obtiene mayor productividad en general
-####*Desventaja* (disadvantage):
+#### *Desventaja* (disadvantage):
 - Monobloque de código: imposibilidad de no producir danno colateral con nuevas funcionalidades
 - Complejidad de reutilizacion
 - Cantidad de lineas mayor
