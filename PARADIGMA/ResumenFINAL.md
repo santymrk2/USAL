@@ -22,15 +22,15 @@ secuencia ordenada de instrucciones que manipulan espacio en memoria
 Base: Como se hace algo
 
 ### Estructurado
-*Ventajas* (advantage):
-    - Menos esfuerzo en el disenno
-    - Menos esfuerzo en el testing
-    - La lectura de un programa suele ser mas sencilla al ser del tipo secuencial
-    - Se obtiene mayor productividad en general
-*Desventaja* (disadvantage):
-    - Monobloque de código: imposibilidad de no producir danno colateral con nuevas funcionalidades
-    - Complejidad de reutilizacion
-    - Cantidad de lineas mayor
+#### *Ventajas* (advantage):
+- Menos esfuerzo en el disenno
+- Menos esfuerzo en el testing
+- La lectura de un programa suele ser mas sencilla al ser del tipo secuencial
+- Se obtiene mayor productividad en general
+####*Desventaja* (disadvantage):
+- Monobloque de código: imposibilidad de no producir danno colateral con nuevas funcionalidades
+- Complejidad de reutilizacion
+- Cantidad de lineas mayor
 
 ## Declarativo
 construccion especificando un conjunto de condiciones, proposiciones, afirmaciones que describen el problema
