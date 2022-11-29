@@ -125,6 +125,93 @@ plata ::Float}
 ### Logico
 Conjunto de predicados definidos a traves de clausulas (hechos y reglas) que describen propiedades y relaciones entre varios individuos y sobre estos se puede consultar
 
+Silogismos: razonamiento con dos premisas y una conclusion que es el resultado logico de las dos premisas.
+
+logica proposicional
+
+este paradigma busca describir nuestro conocimiento en forma de reglas y que un motor se encargue de procesar y sacar conclusiones.
+
+Ejemplo en prolog de socrates hombre y mortal:
+hombre(socrates).
+mortal(X):-hombre(X)
+
+Individuos: cosas sobre las que tenemos el conocimiento que queresmos expresar. Entidad de la cual estudiaremos sus caracteristicas y relaciones.
+Atomos: entidades indivisibles como boby cuando perro(boby)
+
+Predicados:
+lo que describimos o decimos de los individuos.
+aridad es la cantidad de parametros que poseen estos predicados.
+los predicados pueden denotar propiedades (aridad = 1) o relaciones (aridad > 1)
+
+clausulas:
+- Hecho: afirmacion sin condiciones y no poseen simbolo :-
+- Regla: utilizacion de condiciones para verificar un predicado.
+
+COnsultas:
+individuales o existenciales
+
+Universo cerrado: el motor asume como falso todo aquello que no pueda probar que es verdadero.
+
+Inversibilidad: puedo hacer consultas ocn incognitas.
+
+Conjuncion: se logra con la coma
+Disyuncion: mediante la definicion de varias clausulas para el mismo predicado
+
+Functores: individuos que nos premiten agrupar otros individuos para formar abstracciones
+
+Recursividad: definir un predicado en terminos de si mismo
+
+
+
+padre(A, B) :- hijo(B,A).
+abuelo(A, B) :- padre(X, B), hijo(X, A).
+tio(A, B) :- padre(X, B), hermano(X, A).
+tio(A, B) :- madre(X, B), hermano(X, A).
+hermano(A, B) :- padre(X, A), padre(X, B).
+hermano(A, B) :- madre(X, A), madre(X, B).
+
+
+abuelo(abraham, bart).
+abuelo(abraham, lisa).
+abuelo(abraham, magi).
+abuelo(clancy, bart).
+abuelo(clancy, lisa).
+abuelo(clancy, magi).
+abuelo(clancy, ling).
+abuela(mona, bart).
+abuela(mona, lisa).
+abuela(mona, maggie).
+abuela(jackie, bart).
+abuela(jackie, lisa).
+abuela(jackie, maggie).
+abuela(jackie, ling).
+tio(herb, bart).
+tio(herb, lisa).
+tio(herb, maggie).
+tia(patty, bart).
+tia(patty, lisa).
+tia(patty, maggie).
+tia(patty, ling).
+tia(selma, bart).
+tia(selma, lisa).
+tia(selma, maggie).
+tia(marge, ling).
+hermano(homer, herb).
+hermano(herb, homer).
+hermana(marge, patty).
+hermana(patty, marge).
+hermana(patty, selma).
+hermana(selma, patty).
+hermano(bart, lisa).
+hermano(bart, maggie).
+hermana(lisa, bart).
+hermana(lisa, maggie).
+hermana(maggie, lisa).
+hermana(maggie, bart).
+
+
+
+
 ## POO
 Conjunto de objetos que se relacionan entre si con referencias y mensajes en un ambiente.
 Tecnica de programacion que usa objetos y sus interacciones para disennar apps. Se acerca mas a la manera de expresarnos en la vida real.
@@ -179,7 +266,7 @@ Destructor: se eliminan los objetos que ya no se utilizan.
 - Ambiente: donde viven los objetos. imagen para smalltalk o virtual machine para java
 
 Conceptos:
-- Comportamiento: los procedimientos o metodos utilizaods por un objeto.
+- Comportamiento: los procedimientos o metodos utilizados por un objeto.
 - Identidad: cada objeto tiene una identidad unica.
 - Encapsulamiento: ocultamiento del estado de los datos miembro de un objeto y solo cambia mediante lo que este definido para ese objeto.
 - Interfaz: lo publica el objeto para que otro objeto lo use.
@@ -213,7 +300,7 @@ La declaratividad es otr forma que nos permite describir el conocimiento relativ
     + Alto nivel & Bajo nivel: La abstracion tiene niveles, siendo los altos aquellos que son mas cercanas al programador y bajos a la maquina.
 
 + **Declaratividad**:
-Aquellas que intentan separar el conocimiento del dominio de un programa y la manipulacion de estos conocmientos.
+Aquellas que intentan separar el conocimiento del dominio de un programa y la manipulacion de estos conocimientos.
 {Se encuentran en todos excepto en la imperativa}
 Sera declarativo cuando  la descripcion del problema esta separado de los algoritmos.
 Esta caracteristica divide al programa en lo siguiente:
