@@ -248,6 +248,8 @@ Modos:
     + Privado: solo accesibles dentro de la implementacion de clase = -
     + Protegido: son accesibles para la propia clase e hijas = #
 
+- Son aquellas propiedades o datos contenidos en un objeto que lo diferencian del resto.
+
 - Estado: esta determinado por los valores que poseen los atributos en un momento.
 
 - Mensajes: mode de interactuar de los objetos. cosas que le puedo pedir a un objeto que haga. Se utiliza la abstraccion ya que no se sabe como funciona sino que solo se lo invoca
